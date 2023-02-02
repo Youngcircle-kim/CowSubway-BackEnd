@@ -1,4 +1,5 @@
-import express from 'express';
+const express = require('express')
+const db =  require( './models/index.js');
 
 const app = express();
 
@@ -10,4 +11,13 @@ app
   })
   .listen(port, () => {
     console.log(`Example app listening on port ${port}`);
+  });
+
+  db.sequelize
+  .sync()
+  .then(() => {
+    console.log('sql connected');
+  })
+  .catch((err) => {
+    console.log(err);
   });

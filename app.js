@@ -1,23 +1,24 @@
 const express = require('express');
-const db = require('./models/index.js');
+const cors = require('cors');
 
 const app = express();
 
-const port = 3000;
+const corOptions = {
+  origin: 'https://localhost:3000',
+};
 
-app
-  .get('/', (req, res) => {
-    res.send('Hello World!');
-  })
-  .listen(port, () => {
-    console.log(`Example app listening on port ${port}`);
-  });
+app.set('port', process.env.PORT || 3000);
 
-db.sequelize
-  .sync()
-  .then(() => {
-    console.log('sql connected');
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+app.use(cors(corOptions));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+require('./models/index');
+
+app.get('/', (req, res) => {
+  res.json({ message: 'hello world' });
+});
+
+app.listen(app.get('port'), () => {
+  console.log(app.get('port'), '번 포트에서 대기 중');
+});

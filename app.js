@@ -1,5 +1,5 @@
-const express = require('express')
-const db =  require( './models/index.js');
+const express = require('express');
+const db = require('./models/index.js');
 
 const app = express();
 
@@ -13,7 +13,7 @@ app
     console.log(`Example app listening on port ${port}`);
   });
 
-  db.sequelize
+db.sequelize
   .sync()
   .then(() => {
     console.log('sql connected');

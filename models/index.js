@@ -7,6 +7,9 @@ const Items = require('./items');
 const Method = require('./method');
 const Place = require('./place');
 const Combo = require('./combo');
+const OrderVegetable = require('./order_vegetable');
+const OrderExtras = require('./order_extras');
+const OrderSauce = require('./order_sauce');
 const Extras = require('./extras');
 const Vegetable = require('./vegetable');
 const Sauce = require('./sauce');
@@ -27,6 +30,9 @@ const sequelize = new Sequelize(
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
+db.OrderSauce = OrderSauce;
+db.OrderExtras = OrderExtras;
+db.OrderVegetable = OrderVegetable;
 db.Vegetable = Vegetable;
 db.Extras = Extras;
 db.Menu = Menu;
@@ -38,6 +44,9 @@ db.Place = Place;
 db.Combo = Combo;
 db.Sauce = Sauce;
 
+OrderSauce.init(sequelize);
+OrderExtras.init(sequelize);
+OrderVegetable.init(sequelize);
 Extras.init(sequelize);
 Menu.init(sequelize);
 Bread.init(sequelize);

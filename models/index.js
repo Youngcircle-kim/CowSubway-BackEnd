@@ -1,5 +1,9 @@
 const { Sequelize, DataTypes } = require('sequelize');
 
+const Method = require('./method');
+const Place = require('./place');
+const Combo = require('./combo');
+
 const env = process.env.NODE_ENV || 'development';
 
 const config = require('../config/config.json')[env];
@@ -15,6 +19,14 @@ const sequelize = new Sequelize(
 
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
+
+db.Method = Method;
+db.Place = Place;
+db.Combo = Combo;
+
+Method.init(sequelize);
+Place.init(sequelize);
+Combo.init(sequelize);
 
 sequelize
   .sync({ force: false })

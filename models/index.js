@@ -7,6 +7,7 @@ const Items = require('./items');
 const Method = require('./method');
 const Place = require('./place');
 const Combo = require('./combo');
+const Sauce = require('./sauce');
 
 const env = process.env.NODE_ENV || 'development';
 
@@ -31,6 +32,7 @@ db.Items = Items;
 db.Method = Method;
 db.Place = Place;
 db.Combo = Combo;
+db.Sauce = Sauce;
 
 Menu.init(sequelize);
 Bread.init(sequelize);
@@ -39,6 +41,7 @@ Items.init(sequelize);
 Method.init(sequelize);
 Place.init(sequelize);
 Combo.init(sequelize);
+Sauce.init(sequelize);
 
 sequelize
   .sync({ force: false })

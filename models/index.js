@@ -14,6 +14,9 @@ const Extras = require('./extras');
 const Vegetable = require('./vegetable');
 const Sauce = require('./sauce');
 const Recommend = require('./recommend');
+const Payment = require('./payment');
+const Pay_order = require('./pay_order');
+const Order = require('./order');
 
 const env = process.env.NODE_ENV || 'development';
 
@@ -45,6 +48,9 @@ db.Method = Method;
 db.Place = Place;
 db.Combo = Combo;
 db.Sauce = Sauce;
+db.Payment = Payment;
+db.Pay_order = Pay_order;
+db.Order = Order;
 
 Recommend.init(sequelize);
 OrderSauce.init(sequelize);
@@ -60,6 +66,9 @@ Place.init(sequelize);
 Combo.init(sequelize);
 Vegetable.init(sequelize);
 Sauce.init(sequelize);
+Payment.init(sequelize);
+Pay_order.init(sequelize);
+Order.init(sequelize);
 
 sequelize
   .sync({ force: false })

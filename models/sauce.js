@@ -22,7 +22,7 @@ module.exports = class Sauce extends Sequelize.Model {
         },
         sauce_price: {
           //결제수단이름
-          type: Sequelize.STRING,
+          type: Sequelize.INTEGER,
           allowNull: false,
         },
       },

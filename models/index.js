@@ -1,5 +1,9 @@
 const { Sequelize, DataTypes } = require('sequelize');
 
+const Menu = require('./menu');
+const Bread = require('./bread');
+const Cheese = require('./cheese');
+const Items = require('./items');
 const Method = require('./method');
 const Place = require('./place');
 const Combo = require('./combo');
@@ -20,10 +24,18 @@ const sequelize = new Sequelize(
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
+db.Menu = Menu;
+db.Bread = Bread;
+db.Cheese = Cheese;
+db.Items = Items;
 db.Method = Method;
 db.Place = Place;
 db.Combo = Combo;
 
+Menu.init(sequelize);
+Bread.init(sequelize);
+Cheese.init(sequelize);
+Items.init(sequelize);
 Method.init(sequelize);
 Place.init(sequelize);
 Combo.init(sequelize);

@@ -13,6 +13,7 @@ const OrderSauce = require('./order_sauce');
 const Extras = require('./extras');
 const Vegetable = require('./vegetable');
 const Sauce = require('./sauce');
+const Recommend = require('./recommend');
 
 const env = process.env.NODE_ENV || 'development';
 
@@ -30,6 +31,7 @@ const sequelize = new Sequelize(
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
+db.Recommend = Recommend;
 db.OrderSauce = OrderSauce;
 db.OrderExtras = OrderExtras;
 db.OrderVegetable = OrderVegetable;
@@ -44,6 +46,7 @@ db.Place = Place;
 db.Combo = Combo;
 db.Sauce = Sauce;
 
+Recommend.init(sequelize);
 OrderSauce.init(sequelize);
 OrderExtras.init(sequelize);
 OrderVegetable.init(sequelize);

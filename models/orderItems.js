@@ -1,15 +1,21 @@
 const Sequelize = require('sequelize');
 
-class PayOrder extends Sequelize.Model {
+class OrderItems extends Sequelize.Model {
   static init(sequelize) {
     return super.init(
-      {},
+      {
+        order_id: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+          primaryKey: true,
+        },
+      },
       {
         sequelize,
         timestamps: false,
         underscore: false,
-        modelName: 'Pay_order',
-        tableName: 'pay_order',
+        modelName: 'OrderItems',
+        tableName: 'orderitems',
         paranoid: false,
         charset: 'utf8',
         collate: 'utf8_general_ci',
@@ -17,4 +23,4 @@ class PayOrder extends Sequelize.Model {
     );
   }
 }
-module.exports = PayOrder;
+module.exports = OrderItems;

@@ -22,7 +22,7 @@ class Vegetable extends Sequelize.Model {
           allowNull: false,
         },
         vegetable_price: {
-          type: Sequelize.STRING(1000),
+          type: Sequelize.INTEGER,
           allowNull: false,
         },
       },

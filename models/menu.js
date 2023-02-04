@@ -22,7 +22,7 @@ class Menu extends Sequelize.Model {
           allowNull: false,
         },
         price: {
-          type: Sequelize.STRING(1000),
+          type: Sequelize.INTEGER,
           allowNull: false,
         },
         img: {

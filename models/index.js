@@ -82,12 +82,4 @@ sequelize
     console.error(err);
   });
 
-beta_user.hasMany(sauce, {
-  foreignKey: 'order_id',
-});
-
-sauce.belongsTo(beta_user, {
-  foreignKey: 'order_id',
-});
-
 module.exports = db;

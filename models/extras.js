@@ -9,11 +9,11 @@ class Extras extends Sequelize.Model {
           allowNull: false,
           primaryKey: true,
         },
-        name_kr: {
+        extras_name_kr: {
           type: Sequelize.STRING(20),
           allowNull: false,
         },
-        name_en: {
+        extras_name_en: {
           type: Sequelize.STRING(20),
           allowNull: false,
         },

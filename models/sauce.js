@@ -10,8 +10,13 @@ module.exports = class Sauce extends Sequelize.Model {
           autoIncrement: true,
           primaryKey: true,
         },
-        sauce_name: {
+        sauce_name_kr: {
           // 소스 이름
+          type: Sequelize.STRING,
+          allowNull: false,
+        },
+        sauce_name_en: {
+          // 소스 영어 이름
           type: Sequelize.STRING,
           allowNull: false,
         },

@@ -1,4 +1,5 @@
 const { Sequelize, DataTypes } = require('sequelize');
+
 const env = process.env.NODE_ENV || 'development';
 const config = require('../config/config.json')[env];
 
@@ -113,10 +114,10 @@ Items.belongsTo(OrderItems, {
 
 // 추천 소스 : 메뉴 = 1 : N
 Recommend.hasMany(Menu, {
-  foreignKey: 'recommand_id',
+  foreignKey: 'recommend_id',
 });
 Menu.belongsTo(Recommend, {
-  foreignKey: 'recommand_id',
+  foreignKey: 'recommend_id',
 });
 
 // 소스 : 추천 소스 = 1 : N
@@ -127,6 +128,61 @@ Recommend.belongsTo(Sauce, {
   foreignKey: 'sauce_id',
 });
 
+// 세트 : 제작상품 = 1 : N
+Combo.hasMany(Items, {
+  foreignKey: 'Combo_id',
+});
+Items.belongsTo(Combo, {
+  foreignKey: 'Combo_id',
+});
+
+// 빵 : 제작상품 = 1 : N
+Bread.hasMany(Items, {
+  foreignKey: 'Bread_id',
+});
+Items.belongsTo(Bread, {
+  foreignKey: 'Bread_id',
+});
+
+// 치즈 : 제작상품 = 1 : N
+Cheese.hasMany(Items, {
+  foreignKey: 'Cheese_id',
+});
+Items.belongsTo(Cheese, {
+  foreignKey: 'Cheese_id',
+});
+
+// 메뉴 : 제작상품 = 1 : N
+Menu.hasMany(Items, {
+  foreignKey: 'Menu_id',
+});
+Items.belongsTo(Menu, {
+  foreignKey: 'Menu_id',
+});
+
+// 제작상품 : 야채 = N : M
+Items.belongsToMany(Vegetable, {
+  through: OrderVegetable,
+});
+Vegetable.belongsToMany(Items, {
+  through: OrderVegetable,
+});
+
+// 제작상품 : 추가 = N : M
+Items.belongsToMany(Extras, {
+  through: OrderExtras,
+});
+Extras.belongsToMany(Items, {
+  through: OrderExtras,
+});
+
+// 제작상품 : 소스 = N : M
+Items.belongsToMany(Sauce, {
+  through: OrderSauce,
+});
+Sauce.belongsToMany(Items, {
+  through: OrderSauce,
+});
 sequelize
   .sync({ force: false })
   .then(() => {

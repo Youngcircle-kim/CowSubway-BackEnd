@@ -4,7 +4,7 @@ class OrderItems extends Sequelize.Model {
   static init(sequelize) {
     return super.init(
       {
-        order_id: {
+        orders_id: {
           type: Sequelize.INTEGER,
           allowNull: false,
           primaryKey: true,

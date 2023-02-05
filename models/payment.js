@@ -29,5 +29,9 @@ class Payment extends Sequelize.Model {
       }
     );
   }
+  // static associate(db) {
+  //   db.Payment.hasOne(db.Method, {})
+  // }
 }
+
 module.exports = Payment;

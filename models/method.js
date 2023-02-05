@@ -1,28 +1,18 @@
 const Sequelize = require('sequelize');
 
-module.exports = class Sauce extends Sequelize.Model {
+module.exports = class Method extends Sequelize.Model {
   static init(sequelize) {
     return super.init(
       {
-        sauce_id: {
-          //소스식별자(PK)
+        method_id: {
+          //결제수단식별자(PK)
           type: Sequelize.INTEGER,
           autoIncrement: true,
           primaryKey: true,
         },
-        sauce_name: {
-          // 소스 이름
-          type: Sequelize.STRING,
-          allowNull: false,
-        },
-        sauce_img: {
-          // 소스 이미지
-          type: Sequelize.STRING,
-          allowNull: false,
-        },
-        sauce_price: {
+        method_name: {
           //결제수단이름
-          type: Sequelize.INTEGER,
+          type: Sequelize.STRING,
           allowNull: false,
         },
       },
@@ -30,8 +20,8 @@ module.exports = class Sauce extends Sequelize.Model {
         sequelize,
         timestamps: false,
         underscored: false,
-        modelName: 'Sauce',
-        tableName: 'sauce',
+        modelName: 'Method',
+        tableName: 'method',
         paranoid: false,
         charset: 'utf8mb4',
         collate: 'utf8mb4_general_ci',

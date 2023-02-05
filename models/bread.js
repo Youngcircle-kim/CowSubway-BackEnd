@@ -1,10 +1,10 @@
 const Sequelize = require('sequelize');
 
-class Extras extends Sequelize.Model {
+class Bread extends Sequelize.Model {
   static init(sequelize) {
     return super.init(
       {
-        extras_id: {
+        bread_id: {
           type: Sequelize.INTEGER,
           allowNull: false,
           primaryKey: true,
@@ -17,27 +17,23 @@ class Extras extends Sequelize.Model {
           type: Sequelize.STRING(20),
           allowNull: false,
         },
-        extras_img: {
+        bread_img: {
           type: Sequelize.STRING(1000),
-          allowNull: false,
-        },
-        extras_price: {
-          type: Sequelize.INTEGER,
           allowNull: false,
         },
       },
       {
         sequelize,
         timestamps: false,
-        underscored: false,
-        modelName: 'Extras',
-        tableName: 'extras',
+        underscore: false,
+        modelName: 'Bread',
+        tableName: 'bread',
         paranoid: false,
-        charset: 'utf8mb4',
-        collate: 'utf8mb4_general_ci',
+        charset: 'utf8',
+        collate: 'utf8_general_ci',
       }
     );
   }
 }
 
-module.exports = Extras;
+module.exports = Bread;

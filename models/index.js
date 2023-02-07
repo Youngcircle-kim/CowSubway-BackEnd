@@ -130,34 +130,34 @@ Recommend.belongsTo(Sauce, {
 
 // 세트 : 제작상품 = 1 : N
 Combo.hasMany(Items, {
-  foreignKey: 'Combo_id',
+  foreignKey: 'combo_id',
 });
 Items.belongsTo(Combo, {
-  foreignKey: 'Combo_id',
+  foreignKey: 'combo_id',
 });
 
 // 빵 : 제작상품 = 1 : N
 Bread.hasMany(Items, {
-  foreignKey: 'Bread_id',
+  foreignKey: 'bread_id',
 });
 Items.belongsTo(Bread, {
-  foreignKey: 'Bread_id',
+  foreignKey: 'bread_id',
 });
 
 // 치즈 : 제작상품 = 1 : N
 Cheese.hasMany(Items, {
-  foreignKey: 'Cheese_id',
+  foreignKey: 'cheese_id',
 });
 Items.belongsTo(Cheese, {
-  foreignKey: 'Cheese_id',
+  foreignKey: 'cheese_id',
 });
 
 // 메뉴 : 제작상품 = 1 : N
 Menu.hasMany(Items, {
-  foreignKey: 'Menu_id',
+  foreignKey: 'menu_id',
 });
 Items.belongsTo(Menu, {
-  foreignKey: 'Menu_id',
+  foreignKey: 'menu_id',
 });
 
 // 제작상품 : 야채 = N : M

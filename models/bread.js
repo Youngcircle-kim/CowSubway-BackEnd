@@ -9,11 +9,11 @@ class Bread extends Sequelize.Model {
           allowNull: false,
           primaryKey: true,
         },
-        name_kr: {
+        bread_name_kr: {
           type: Sequelize.STRING(20),
           allowNull: false,
         },
-        name_en: {
+        bread_name_en: {
           type: Sequelize.STRING(20),
           allowNull: false,
         },

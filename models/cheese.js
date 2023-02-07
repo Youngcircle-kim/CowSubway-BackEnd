@@ -9,11 +9,11 @@ class Cheese extends Sequelize.Model {
           allowNull: false,
           primaryKey: true,
         },
-        name_kr: {
+        cheese_name_kr: {
           type: Sequelize.STRING(20),
           allowNull: false,
         },
-        name_en: {
+        cheese_name_en: {
           type: Sequelize.STRING(20),
           allowNull: false,
         },

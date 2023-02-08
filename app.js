@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const cart = require('./routes/cart');
 
 const app = express();
 
@@ -12,6 +13,8 @@ app.set('port', process.env.PORT || 3000);
 app.use(cors(corOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+app.use('/cart', cart);
 
 require('./models/index');
 

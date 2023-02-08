@@ -1,3 +1,4 @@
+const { INTEGER } = require('sequelize');
 const Sequelize = require('sequelize');
 
 class Menu extends Sequelize.Model {
@@ -9,27 +10,23 @@ class Menu extends Sequelize.Model {
           allowNull: false,
           primaryKey: true,
         },
-        menu_kr: {
+        menu_category: {
           type: Sequelize.STRING(20),
           allowNull: false,
         },
-        menu_en: {
+        menu_name_kr: {
+          type: Sequelize.STRING(20),
+          allowNull: false,
+        },
+        menu_name_en: {
           type: Sequelize.STRING(100),
           allowNull: false,
         },
         menu_kcal: {
-          type: Sequelize.STRING(1000),
+          type: Sequelize.INTEGER,
           allowNull: false,
         },
-        menu_15cm_price: {
-          type: Sequelize.INTEGER,
-          allowNull: true,
-        },
-        menu_30cm_price: {
-          type: Sequelize.INTEGER,
-          allowNull: true,
-        },
-        menu_salad_price: {
+        menu_price: {
           type: Sequelize.INTEGER,
           allowNull: true,
         },

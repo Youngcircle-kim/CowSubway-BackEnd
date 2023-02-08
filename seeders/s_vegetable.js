@@ -3,7 +3,7 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert(
-      'vegetgable',
+      'vegetable',
       [
         {
           vegetable_id: 1,

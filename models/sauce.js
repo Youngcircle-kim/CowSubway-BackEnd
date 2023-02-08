@@ -25,11 +25,6 @@ module.exports = class Sauce extends Sequelize.Model {
           type: Sequelize.STRING,
           allowNull: false,
         },
-        sauce_price: {
-          //결제수단이름
-          type: Sequelize.INTEGER,
-          allowNull: false,
-        },
       },
       {
         sequelize,

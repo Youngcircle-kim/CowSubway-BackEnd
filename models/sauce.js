@@ -5,7 +5,7 @@ module.exports = class Sauce extends Sequelize.Model {
     return super.init(
       {
         sauce_id: {
-          //소스식별자(PK)
+          // 소스식별자(PK)
           type: Sequelize.INTEGER,
           autoIncrement: true,
           primaryKey: true,

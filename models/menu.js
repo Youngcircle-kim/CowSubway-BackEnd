@@ -4,28 +4,36 @@ class Menu extends Sequelize.Model {
   static init(sequelize) {
     return super.init(
       {
-        name_id: {
+        menu_id: {
           type: Sequelize.INTEGER,
           allowNull: false,
           primaryKey: true,
         },
-        name_kr: {
+        menu_kr: {
           type: Sequelize.STRING(20),
           allowNull: false,
         },
-        name_en: {
-          type: Sequelize.STRING(20),
+        menu_en: {
+          type: Sequelize.STRING(100),
           allowNull: false,
         },
-        kcal: {
+        menu_kcal: {
           type: Sequelize.STRING(1000),
           allowNull: false,
         },
-        price: {
+        menu_15cm_price: {
           type: Sequelize.INTEGER,
-          allowNull: false,
+          allowNull: true,
         },
-        img: {
+        menu_30cm_price: {
+          type: Sequelize.INTEGER,
+          allowNull: true,
+        },
+        menu_salad_price: {
+          type: Sequelize.INTEGER,
+          allowNull: true,
+        },
+        menu_img: {
           type: Sequelize.STRING(1000),
           allowNull: false,
         },

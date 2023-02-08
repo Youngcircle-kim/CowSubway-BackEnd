@@ -1,6 +1,6 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.bulkInsert('menu', [
+    await queryInterface.bulkInsert('cheese', [
       {
         cheese_id: 1,
         cheese_name_kr: '아메리칸 치즈',

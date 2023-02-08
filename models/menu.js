@@ -14,7 +14,7 @@ class Menu extends Sequelize.Model {
           allowNull: false,
         },
         menu_en: {
-          type: Sequelize.STRING(20),
+          type: Sequelize.STRING(100),
           allowNull: false,
         },
         menu_kcal: {

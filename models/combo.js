@@ -10,6 +10,18 @@ module.exports = class Combo extends Sequelize.Model {
           autoIncrement: true,
           primaryKey: true,
         },
+        combo_name: {
+          type: Sequelize.STRING(20),
+          allowNull: false,
+        },
+        combo_price: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+        },
+        combo_img: {
+          type: Sequelize.STRING(1000),
+          allowNull: false,
+        },
       },
       {
         sequelize,

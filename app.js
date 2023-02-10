@@ -20,6 +20,6 @@ require('./models/index');
 
 const menuRouter = require('./routes/menuRouter');
 
-app.use('/menu', menuRouter);
+app.use('/', menuRouter);
 
 app.listen(3000);

@@ -10,25 +10,10 @@ const Combos = require('../models/combo');
 
 const menuRouter = express.Router();
 
-menuRouter.get('/menu/sandwich_15', async (req, res) => {
+menuRouter.get('/menu/sandwich', async (req, res) => {
   try {
     const menus = await Menus.findAll({
-      where: { menu_category: { [Op.like]: '%15cm' } },
-      order: [['menu_price', 'desc']],
-    });
-    res.json(menus);
-  } catch (error) {
-    console.log(`${req.method} ${req.originalUrl} : ${error.message}`);
-    res.status(400).send({
-      errorMessage: '형식이 잘못됐습니다.',
-    });
-  }
-});
-menuRouter.get('/menu/sandwich_30', async (req, res) => {
-  try {
-    const menus = await Menus.findAll({
-      where: { menu_category: { [Op.like]: '%30cm%' } },
-      order: [['menu_price', 'desc']],
+      where: { menu_category: { [Op.like]: '%cm%' } },
     });
     res.json(menus);
   } catch (error) {

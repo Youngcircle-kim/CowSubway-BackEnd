@@ -1,10 +1,10 @@
 const express = require('express');
 const { Op } = require('sequelize');
 const Menus = require('../models/menu');
-const Breads = require('../models/bread');
+
 const Cheeses = require('../models/cheese');
 const Extras = require('../models/extras');
-const Vegetables = require('../models/vegetable');
+
 const Sauces = require('../models/sauce');
 const Combos = require('../models/combo');
 
@@ -13,25 +13,26 @@ const menuRouter = express.Router();
 menuRouter.get('/menu/sandwich', async (req, res) => {
   try {
     const menus = await Menus.findAll({
-      where: { menu_category: { [Op.like]: '%cm%' } },
+      where: { menu_category: { [Op.notIn]: '샐' } }, //샐러드의 '샐'이 포함되지 않으면 샌드위치이다.
     });
     res.json(menus);
   } catch (error) {
-    console.log(`${req.method} ${req.originalUrl} : ${error.message}`);
+    console.error(`${req.method} ${req.originalUrl} : ${error.message}`);
     res.status(400).send({
       errorMessage: '형식이 잘못됐습니다.',
     });
   }
 });
+
 menuRouter.get('/menu/salad', async (req, res) => {
   try {
     const menus = await Menus.findAll({
-      where: { menu_category: { [Op.like]: '%샐러드%' } },
+      where: { menu_category: { [Op.in]: '샐' } }, //샐러드의 '샐'이 포함되어 있으면 샐러드이다.
       order: [['menu_price', 'desc']],
     });
     res.json(menus);
   } catch (error) {
-    console.log(`${req.method} ${req.originalUrl} : ${error.message}`);
+    console.error(`${req.method} ${req.originalUrl} : ${error.message}`);
     res.status(400).send({
       errorMessage: '형식이 잘못됐습니다.',
     });
@@ -45,7 +46,7 @@ menuRouter.get('/step/bread', async (req, res) => {
     });
     res.json(breads);
   } catch (error) {
-    console.log(`${req.method} ${req.originalUrl} : ${error.message}`);
+    console.error(`${req.method} ${req.originalUrl} : ${error.message}`);
     res.status(400).send({
       errorMessage: '형식이 잘못됐습니다.',
     });
@@ -58,7 +59,7 @@ menuRouter.get('/step/cheese', async (req, res) => {
     });
     res.json(cheeses);
   } catch (error) {
-    console.log(`${req.method} ${req.originalUrl} : ${error.message}`);
+    console.error(`${req.method} ${req.originalUrl} : ${error.message}`);
     res.status(400).send({
       errorMessage: '형식이 잘못됐습니다.',
     });
@@ -71,7 +72,7 @@ menuRouter.get('/step/extras', async (req, res) => {
     });
     res.json(extras);
   } catch (error) {
-    console.log(`${req.method} ${req.originalUrl} : ${error.message}`);
+    console.error(`${req.method} ${req.originalUrl} : ${error.message}`);
     res.status(400).send({
       errorMessage: '형식이 잘못됐습니다.',
     });
@@ -84,7 +85,7 @@ menuRouter.get('/step/vegetable', async (req, res) => {
     });
     res.json(vegetables);
   } catch (error) {
-    console.log(`${req.method} ${req.originalUrl} : ${error.message}`);
+    console.error(`${req.method} ${req.originalUrl} : ${error.message}`);
     res.status(400).send({
       errorMessage: '형식이 잘못됐습니다.',
     });
@@ -97,7 +98,7 @@ menuRouter.get('/step/sauce', async (req, res) => {
     });
     res.json(sauces);
   } catch (error) {
-    console.log(`${req.method} ${req.originalUrl} : ${error.message}`);
+    console.error(`${req.method} ${req.originalUrl} : ${error.message}`);
     res.status(400).send({
       errorMessage: '형식이 잘못됐습니다.',
     });
@@ -109,7 +110,7 @@ menuRouter.get('/step/combo', async (req, res) => {
     const combos = await Combos.findAll();
     res.json(combos);
   } catch (error) {
-    console.log(`${req.method} ${req.originalUrl} : ${error.message}`);
+    console.error(`${req.method} ${req.originalUrl} : ${error.message}`);
     res.status(400).send({
       errorMessage: '형식이 잘못됐습니다.',
     });

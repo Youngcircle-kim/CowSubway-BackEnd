@@ -7,12 +7,12 @@ let number = 0;
 orderRouter.post('/order', async (req, res, error) => {
   console.log(req.body);
   const data = req.body;
-  const { payType } = data.payType;
-  const { totalPrice } = data.totalPrice;
+  // const { payType } = data.payType;
+  // const { totalPrice } = data.totalPrice;
   orderItems = data.orderItems;
   try {
     if (orderItems.length === 0) {
-      res.status(400).send('형식이 잘못');
+      res.status(400).send('형식이 잘못되었습니다.');
     } else {
       number += 1;
       res.status(200).send({

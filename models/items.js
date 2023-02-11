@@ -17,6 +17,11 @@ class Items extends Sequelize.Model {
           type: Sequelize.STRING(1000),
           allowNull: false,
         },
+        price: {
+          // 상품 하나 당 가격
+          type: Sequelize.INTEGER,
+          allowNull: false,
+        },
       },
       {
         sequelize,

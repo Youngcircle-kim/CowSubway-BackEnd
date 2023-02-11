@@ -5,14 +5,22 @@ const orderRouter = express.Router();
 let orderItems = [];
 let number = 0;
 orderRouter.post('/order', (req, res, error) => {
-  const data = req.body;
-  // const { payType } = data.payType;
-  // const { totalPrice } = data.totalPrice;
-  orderItems = data.orderItems;
   try {
-    if (orderItems.length === 0) {
-      res.status(400).send('형식이 잘못되었습니다.');
-    } else {
+    const data = req.body;
+    const { payType } = data;
+    const { totalPrice } = data;
+    orderItems = data.orderItems;
+    if (
+      orderItems.length === 0 ||
+      typeof payType === 'undefined' ||
+      typeof totalPrice === 'undefined'
+    ) {
+      res.status(400).send({ success: false, message: '주문실패' });
+    } else if (
+      // eslint-disable-next-line no-dupe-else-if
+      typeof payType !== 'undefined' &&
+      typeof totalPrice !== 'undefined'
+    ) {
       number += 1;
       res.status(200).send({
         success: true,

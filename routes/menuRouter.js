@@ -13,7 +13,7 @@ const menuRouter = express.Router();
 
 const errMessage = (req, res) => {
   res.status(400).send({
-    errorMessage: '형식이 잘못됐습니다.',
+    errorMessage: '리소스를 찾을 수 없습니다.',
   });
 };
 

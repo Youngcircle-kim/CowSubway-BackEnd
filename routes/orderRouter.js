@@ -4,8 +4,7 @@ const orderRouter = express.Router();
 
 let orderItems = [];
 let number = 0;
-orderRouter.post('/order', async (req, res, error) => {
-  console.log(req.body);
+orderRouter.post('/order', (req, res, error) => {
   const data = req.body;
   // const { payType } = data.payType;
   // const { totalPrice } = data.totalPrice;

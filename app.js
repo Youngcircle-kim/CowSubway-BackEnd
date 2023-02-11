@@ -16,7 +16,9 @@ app.use(express.urlencoded({ extended: false }));
 require('./models/index');
 
 const menuRouter = require('./routes/menuRouter');
+const orderRouter = require('./routes/orderRouter');
 
 app.use('/', menuRouter);
+app.use('/', orderRouter);
 
 app.listen(3000);

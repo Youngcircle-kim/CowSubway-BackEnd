@@ -4,7 +4,8 @@ const Menus = require('../models/menu');
 
 const Cheeses = require('../models/cheese');
 const Extras = require('../models/extras');
-
+const Breads = require('../models/bread');
+const Vegetables = require('../models/vegetable');
 const Sauces = require('../models/sauce');
 const Combos = require('../models/combo');
 
@@ -20,6 +21,7 @@ menuRouter.get('/menu/sandwich', async (req, res) => {
   try {
     const menus = await Menus.findAll({
       where: { menu_category: { [Op.notIn]: ['샐러드'] } }, // 카테고리에 '샐러드'가 포함되지 않으면 샌드위치이다.
+      order: [['menu_price', 'desc']],
     });
     res.json(menus);
   } catch (error) {

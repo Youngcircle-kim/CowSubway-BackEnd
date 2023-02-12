@@ -1,5 +1,5 @@
 const Breads = require('../models/bread');
-const errMessage = require('../routes/menuRouter');
+const errMessage = require('../errMessage');
 
 const breadController = async (req, res) => {
   try {
@@ -13,7 +13,7 @@ const breadController = async (req, res) => {
     }
   } catch (error) {
     console.error(`${req.method} ${req.originalUrl} : ${error.message}`);
-    errMessage(req, res);
+    errMessage.resourceNotFoundException(req, res);
   }
 };
 

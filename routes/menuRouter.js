@@ -10,7 +10,7 @@ const ComboController = require('../controller/comboController');
 
 const menuRouter = express.Router();
 
-const errMessage = (req, res) => {
+exports.errMessage = (req, res) => {
   res.status(400).send({
     errorMessage: '리소스를 찾을 수 없습니다.',
   });

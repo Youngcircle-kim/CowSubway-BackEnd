@@ -11,7 +11,7 @@ orderRouter.post('/order', (req, res, error) => {
     const { totalPrice } = data;
     orderItems = data.orderItems;
     if (
-      orderItems.length === 0 ||
+      orderItems.length < 1 ||
       typeof payType === 'undefined' ||
       typeof totalPrice === 'undefined'
     ) {
@@ -32,6 +32,7 @@ orderRouter.post('/order', (req, res, error) => {
     }
   } catch (err) {
     console.error(`${req.method} ${req.originalUrl} : ${error.message}`);
+    res.status(400).send({ success: false, message: '주문실패' });
   }
 });
 

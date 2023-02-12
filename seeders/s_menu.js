@@ -528,8 +528,8 @@ module.exports = {
         menu_img:
           'https://www.subway.co.kr/upload/menu/K-%EB%B0%94%EB%B9%84%ED%81%90-%EC%83%90%EB%9F%AC%EB%93%9C-%EB%8B%A8%ED%92%88_20220413025007802.png',
       },
-
       {
+        //id:1, 랜치 / id:5 , 스위트 칠리
         menu_id: 52,
         menu_category: '15cm',
         menu_name_kr: '에그마요 페퍼로니',
@@ -559,8 +559,8 @@ module.exports = {
         menu_img:
           'https://www.subway.co.kr/upload/menu/%EC%97%90%EA%B7%B8%EB%A7%88%EC%9A%94-%ED%8E%98%ED%8D%BC%EB%A1%9C%EB%8B%88-%EC%83%90%EB%9F%AC%EB%93%9C-%EB%8B%A8%ED%92%88_20230103125925049.png',
       },
-
       {
+        //id:1, 랜치 / id:5 , 스위트 칠리
         menu_id: 55,
         menu_category: '15cm',
         menu_name_kr: '에그마요 베이컨',

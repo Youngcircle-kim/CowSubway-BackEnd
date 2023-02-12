@@ -1,4 +1,5 @@
 const express = require('express');
+
 const orderRouter = express.Router();
 
 let orderItems = [];
@@ -14,7 +15,7 @@ orderRouter.post('/order', (req, res, error) => {
       typeof payType === 'undefined' ||
       typeof totalPrice === 'undefined'
     ) {
-      throw err;
+      res.status(400).send({ success: false, message: '주문실패' });
     } else if (
       // eslint-disable-next-line no-dupe-else-if
       typeof payType !== 'undefined' &&

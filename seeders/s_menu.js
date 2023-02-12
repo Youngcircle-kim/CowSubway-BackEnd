@@ -2,6 +2,7 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('menu', [
       {
+        //id:11 , 레드와인식초
         menu_id: 1,
         menu_category: '15cm',
         menu_name_kr: '베지',
@@ -32,6 +33,7 @@ module.exports = {
           'https://www.subway.co.kr/upload/menu/%EB%B2%A0%EC%A7%80_20220413025133772.png',
       },
       {
+        //id:1, 랜치 / id:5 , 스위트 칠리
         menu_id: 4,
         menu_category: '15cm',
         menu_name_kr: '에그마요',
@@ -62,6 +64,7 @@ module.exports = {
           'https://www.subway.co.kr/upload/menu/%EC%97%90%EA%B7%B8%EB%A7%88%EC%9A%94_20220413025402885.png',
       },
       {
+        //id:5 , 스위트 칠리 / id:6 , 핫칠리
         menu_id: 7,
         menu_category: '15cm',
         menu_name_kr: '참치',
@@ -92,6 +95,7 @@ module.exports = {
           'https://www.subway.co.kr/upload/menu/%EC%B0%B8%EC%B9%98_20220413025420234.png',
       },
       {
+        //id :4 , 허니 머스타드
         menu_id: 10,
         menu_category: '15cm',
         menu_name_kr: '햄',
@@ -122,6 +126,7 @@ module.exports = {
           'https://www.subway.co.kr/upload/menu/%ED%96%84_20220413025435077.png',
       },
       {
+        //id : 1 , 랜치 / id:3 , 스위트 어니언
         menu_id: 13,
         menu_category: '15cm',
         menu_name_kr: '치킨 슬라이스',
@@ -152,6 +157,7 @@ module.exports = {
           'https://www.subway.co.kr/upload/menu/%EC%B9%98%ED%82%A8%EC%8A%AC%EB%9D%BC%EC%9D%B4%EC%8A%A4%EC%83%90%EB%9F%AC%EB%93%9C_20220804013626403.png',
       },
       {
+        // id:5 , 스위트 칠리 / id:1 , 랜치 / id:7 , NEW 사우스웨스트 치폴레
         menu_id: 16,
         menu_category: '15cm',
         menu_name_kr: '비엘티',
@@ -182,6 +188,7 @@ module.exports = {
           'https://www.subway.co.kr/upload/menu/BLT_20220413025509426.png',
       },
       {
+        //id:1 , 랜치 / id:6 , 핫칠리
         menu_id: 19,
         menu_category: '15cm',
         menu_name_kr: '스파이시 이탈리안',
@@ -212,6 +219,7 @@ module.exports = {
           'https://www.subway.co.kr/upload/menu/%EC%8A%A4%ED%8C%8C%EC%9D%B4%EC%8B%9C%EC%9D%B4%ED%83%88%EB%A6%AC%EC%95%88_20220413025046219.png',
       },
       {
+        //id:14 , 스모크 바비큐 / id:5 , 스위트 칠리
         menu_id: 22,
         menu_category: '15cm',
         menu_name_kr: '치킨 데리야끼',
@@ -242,6 +250,7 @@ module.exports = {
           'https://www.subway.co.kr/upload/menu/%EC%B9%98%ED%82%A8%EB%8D%B0%EB%A6%AC%EC%95%BC%ED%82%A4_20220413025028317.png',
       },
       {
+        //id:1, 랜치 / id:5 , 스위트 칠리 / id:6 , 핫칠리
         menu_id: 25,
         menu_category: '15cm',
         menu_name_kr: '쉬림프',
@@ -272,6 +281,7 @@ module.exports = {
           'https://www.subway.co.kr/upload/menu/%EC%89%AC%EB%A6%BC%ED%94%84_20220413025617416.png',
       },
       {
+        //id:3 , 스위트 어니언
         menu_id: 28,
         menu_category: '15cm',
         menu_name_kr: '로스트 치킨',
@@ -302,6 +312,7 @@ module.exports = {
           'https://www.subway.co.kr/upload/menu/%EB%A1%9C%EC%8A%A4%ED%8A%B8%EC%B9%98%ED%82%A8_20220413025308231.png',
       },
       {
+        //id:5 , 스위트 칠리
         menu_id: 31,
         menu_category: '15cm',
         menu_name_kr: '로티세리 바비큐 치킨',
@@ -332,6 +343,7 @@ module.exports = {
           'https://www.subway.co.kr/upload/menu/%EB%A1%9C%ED%8B%B0%EC%84%B8%EB%A6%AC_20220413025601652.png',
       },
       {
+        //id:1 , 랜치 / id:9 , 홀스래디쉬
         menu_id: 34,
         menu_category: '15cm',
         menu_name_kr: '치킨 베이컨 아보카도',
@@ -362,6 +374,7 @@ module.exports = {
           'https://www.subway.co.kr/upload/menu/%EC%B9%98%ED%82%A8%EB%B2%A0%EC%9D%B4%EC%BB%A8%EC%95%84%EB%B3%B4%EC%B9%B4%EB%8F%84%EC%83%90%EB%9F%AC%EB%93%9C_20220804013826306.png',
       },
       {
+        //id:7 , NEW 사우스웨스트 치폴레 / id:14 , 스모크 바비큐
         menu_id: 37,
         menu_category: '15cm',
         menu_name_kr: '스테이크 & 치즈',
@@ -392,6 +405,7 @@ module.exports = {
           'https://www.subway.co.kr/upload/menu/%EC%8A%A4%ED%85%8C%EC%9D%B4%ED%81%AC%EC%B9%98%EC%A6%88_20220413025117730.png',
       },
       {
+        //id:1 , 랜치 / id:3 , 스위트 어니언
         menu_id: 40,
         menu_category: '15cm',
         menu_name_kr: '써브웨이 클럽',
@@ -422,6 +436,7 @@ module.exports = {
           'https://www.subway.co.kr/upload/menu/%EC%8D%A8%EB%B8%8C%EC%9B%A8%EC%9D%B4%ED%81%B4%EB%9F%BD_20220413025207625.png',
       },
       {
+        //id : 1 , 랜치 / id:3 , 스위트 어니언 / id:6 , 핫칠리
         menu_id: 43,
         menu_category: '15cm',
         menu_name_kr: '이탈리안 비엠티',
@@ -452,6 +467,7 @@ module.exports = {
           'https://www.subway.co.kr/upload/menu/%EC%9D%B4%ED%83%88%EB%A6%AC%EC%95%88%EB%B9%84%EC%97%A0%ED%8B%B0_20220413025527215.png',
       },
       {
+        //id:14 , 스모크 바비큐
         menu_id: 46,
         menu_category: '15cm',
         menu_name_kr: '풀드 포크 바비큐',
@@ -482,6 +498,7 @@ module.exports = {
           'https://www.subway.co.kr/upload/menu/%ED%92%80%ED%8F%AC%ED%81%AC_20220413025545422.png',
       },
       {
+        //id : 10 , 올리브오일 / id:13 , 후추
         menu_id: 49,
         menu_category: '15cm',
         menu_name_kr: 'K-바비큐',

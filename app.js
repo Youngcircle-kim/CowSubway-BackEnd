@@ -1,7 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-const cart = require('./routes/cartRouter');
-
 const app = express();
 
 const corOptions = {
@@ -14,12 +12,12 @@ app.use(cors(corOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use('/cart', cart);
-
 require('./models/index');
 
 const menuRouter = require('./routes/menuRouter');
+const orderRouter = require('./routes/orderRouter');
 
-app.use('/menu', menuRouter);
+app.use('/', menuRouter);
+app.use('/', orderRouter);
 
 app.listen(3000);

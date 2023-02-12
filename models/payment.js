@@ -5,7 +5,7 @@ class Payment extends Sequelize.Model {
   static init(sequelize) {
     return super.init(
       {
-        payment_id: {
+        payType: {
           // 결제식별자
           type: Sequelize.INTEGER,
           allowNull: false,

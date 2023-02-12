@@ -312,7 +312,7 @@ module.exports = {
           'https://www.subway.co.kr/upload/menu/Rotisserie-Barbecue-Chicken_20211231023137878.png',
       },
       {
-        menu_id: 31,
+        menu_id: 32,
         menu_category: '30cm',
         menu_name_kr: '로티세리 바비큐 치킨',
         menu_name_en: 'Rotisserie Barbecue Chicken',

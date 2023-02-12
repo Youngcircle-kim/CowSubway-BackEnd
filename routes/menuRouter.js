@@ -4,7 +4,7 @@ const SaladController = require('../controller/saladController');
 const BreadController = require('../controller/breadController');
 const VegetableController = require('../controller/vegetableController');
 const CheeseController = require('../controller/cheeseController');
-const ExtraController = require('../controller/extraController');
+const ToppingController = require('../controller/toppingController');
 const SauceController = require('../controller/sauceController');
 const ComboController = require('../controller/comboController');
 
@@ -24,7 +24,7 @@ menuRouter.get('/step/bread', BreadController);
 
 menuRouter.get('/step/cheese', CheeseController);
 
-menuRouter.get('/step/extras', ExtraController);
+menuRouter.get('/step/topping', ToppingController);
 
 menuRouter.get('/step/vegetable', VegetableController);
 

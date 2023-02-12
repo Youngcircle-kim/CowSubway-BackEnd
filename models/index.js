@@ -11,9 +11,9 @@ const Method = require('./method');
 const Place = require('./place');
 const Combo = require('./combo');
 const OrderVegetable = require('./order_vegetable');
-const OrderExtras = require('./order_extras');
+const OrderTopping = require('./order_topping');
 const OrderSauce = require('./order_sauce');
-const Extras = require('./extras');
+const Topping = require('./topping');
 const Vegetable = require('./vegetable');
 const Sauce = require('./sauce');
 const Recommend = require('./recommend');
@@ -37,10 +37,10 @@ db.sequelize = sequelize;
 db.OrderItems = OrderItems;
 db.Recommend = Recommend;
 db.OrderSauce = OrderSauce;
-db.OrderExtras = OrderExtras;
+db.OrderTopping = OrderTopping;
 db.OrderVegetable = OrderVegetable;
 db.Vegetable = Vegetable;
-db.Extras = Extras;
+db.Topping = Topping;
 db.Menu = Menu;
 db.Bread = Bread;
 db.Cheese = Cheese;
@@ -56,9 +56,9 @@ db.Order = Order;
 OrderItems.init(sequelize);
 Recommend.init(sequelize);
 OrderSauce.init(sequelize);
-OrderExtras.init(sequelize);
+OrderTopping.init(sequelize);
 OrderVegetable.init(sequelize);
-Extras.init(sequelize);
+Topping.init(sequelize);
 Menu.init(sequelize);
 Bread.init(sequelize);
 Cheese.init(sequelize);
@@ -169,11 +169,11 @@ Vegetable.belongsToMany(Items, {
 });
 
 // 제작상품 : 추가 = N : M
-Items.belongsToMany(Extras, {
-  through: OrderExtras,
+Items.belongsToMany(Topping, {
+  through: OrderTopping,
 });
-Extras.belongsToMany(Items, {
-  through: OrderExtras,
+Topping.belongsToMany(Items, {
+  through: OrderTopping,
 });
 
 // 제작상품 : 소스 = N : M

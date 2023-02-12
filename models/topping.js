@@ -1,27 +1,27 @@
 const Sequelize = require('sequelize');
 
-class Extras extends Sequelize.Model {
+class Topping extends Sequelize.Model {
   static init(sequelize) {
     return super.init(
       {
-        extras_id: {
+        topping_id: {
           type: Sequelize.INTEGER,
           allowNull: false,
           primaryKey: true,
         },
-        extras_name_kr: {
+        topping_name_kr: {
           type: Sequelize.STRING(20),
           allowNull: false,
         },
-        extras_name_en: {
+        topping_name_en: {
           type: Sequelize.STRING(20),
           allowNull: false,
         },
-        extras_img: {
+        topping_img: {
           type: Sequelize.STRING(1000),
           allowNull: false,
         },
-        extras_price: {
+        topping_price: {
           type: Sequelize.INTEGER,
           allowNull: false,
         },
@@ -30,8 +30,8 @@ class Extras extends Sequelize.Model {
         sequelize,
         timestamps: false,
         underscored: false,
-        modelName: 'Extras',
-        tableName: 'extras',
+        modelName: 'Topping',
+        tableName: 'topping',
         paranoid: false,
         charset: 'utf8mb4',
         collate: 'utf8mb4_general_ci',
@@ -40,4 +40,4 @@ class Extras extends Sequelize.Model {
   }
 }
 
-module.exports = Extras;
+module.exports = Topping;

@@ -1,6 +1,7 @@
 const express = require('express');
 
 const orderRouter = express.Router();
+const errMessage = require('../errMessage');
 
 let orderItems = [];
 let number = 0;
@@ -15,7 +16,7 @@ orderRouter.post('/order', (req, res, error) => {
       typeof payType === 'undefined' ||
       typeof totalPrice === 'undefined'
     ) {
-      res.status(400).send({ success: false, message: '주문실패' });
+      throw Object.assign(new Error(), { code: 400 });
     } else if (
       // eslint-disable-next-line no-dupe-else-if
       typeof payType !== 'undefined' &&
@@ -32,7 +33,7 @@ orderRouter.post('/order', (req, res, error) => {
     }
   } catch (err) {
     console.error(`${req.method} ${req.originalUrl} : ${error.message}`);
-    res.status(400).send({ success: false, message: '주문실패' });
+    errMessage.outOfFormatException(req, res);
   }
 });
 

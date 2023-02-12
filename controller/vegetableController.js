@@ -1,5 +1,5 @@
 const Vegetables = require('../models/vegetable');
-const errMessage = require('../routes/menuRouter');
+const errMessage = require('../errMessage');
 
 const vegetableController = async (req, res) => {
   try {
@@ -13,7 +13,7 @@ const vegetableController = async (req, res) => {
     }
   } catch (error) {
     console.error(`${req.method} ${req.originalUrl} : ${error.message}`);
-    errMessage(req, res);
+    errMessage.resourceNotFoundException(req, res);
   }
 };
 

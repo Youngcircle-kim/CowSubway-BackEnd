@@ -1,5 +1,5 @@
 const Cheeses = require('../models/cheese');
-const errMessage = require('../routes/menuRouter');
+const errMessage = require('../errMessage');
 
 const cheeseController = async (req, res) => {
   try {
@@ -13,7 +13,7 @@ const cheeseController = async (req, res) => {
     }
   } catch (error) {
     console.error(`${req.method} ${req.originalUrl} : ${error.message}`);
-    errMessage(req, res);
+    errMessage.resourceNotFoundException(req, res);
   }
 };
 

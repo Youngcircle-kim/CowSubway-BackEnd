@@ -1,5 +1,5 @@
 const Combos = require('../models/combo');
-const errMessage = require('../routes/menuRouter');
+const errMessage = require('../errMessage');
 
 const comboController = async (req, res) => {
   try {
@@ -11,7 +11,7 @@ const comboController = async (req, res) => {
     }
   } catch (error) {
     console.error(`${req.method} ${req.originalUrl} : ${error.message}`);
-    errMessage(req, res);
+    errMessage.resourceNotFoundException(req, res);
   }
 };
 

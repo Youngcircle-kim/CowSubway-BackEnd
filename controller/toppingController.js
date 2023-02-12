@@ -1,15 +1,15 @@
-const Extras = require('../models/extras');
+const Topping = require('../models/topping');
 const errMessage = require('../routes/menuRouter');
 
-const extraController = async (req, res) => {
+const toppingController = async (req, res) => {
   try {
-    const extras = await Extras.findAll({
-      order: [['extras_id']],
+    const topping = await Topping.findAll({
+      order: [['topping_id']],
     });
-    if (extras.length === 0) {
+    if (topping.length === 0) {
       throw Object.assign(new Error(), { code: 400 });
     } else {
-      res.json(extras);
+      res.json(topping);
     }
   } catch (error) {
     console.error(`${req.method} ${req.originalUrl} : ${error.message}`);
@@ -17,4 +17,4 @@ const extraController = async (req, res) => {
   }
 };
 
-module.exports = extraController;
+module.exports = toppingController;

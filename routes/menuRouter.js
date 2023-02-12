@@ -23,9 +23,13 @@ menuRouter.get('/menu/sandwich', async (req, res) => {
       where: { menu_category: { [Op.notIn]: ['샐러드'] } }, // 카테고리에 '샐러드'가 포함되지 않으면 샌드위치이다.
       order: [['menu_price', 'desc']],
     });
+    if (menus.length === 0) {
+      errMessage(req, res);
+    } else {
+      res.json(breads);
+    }
     res.json(menus);
   } catch (error) {
-    console.error(`${req.method} ${req.originalUrl} : ${error.message}`);
     errMessage(req, res);
   }
 });
@@ -36,6 +40,11 @@ menuRouter.get('/menu/salad', async (req, res) => {
       where: { menu_category: { [Op.in]: ['샐러드'] } }, // 카테고리에 '샐러드'가 포함되어 있으면 샐러드이다.
       order: [['menu_price', 'desc']],
     });
+    if (menus.length === 0) {
+      errMessage(req, res);
+    } else {
+      res.json(breads);
+    }
     res.json(menus);
   } catch (error) {
     console.error(`${req.method} ${req.originalUrl} : ${error.message}`);
@@ -48,7 +57,11 @@ menuRouter.get('/step/bread', async (req, res) => {
     const breads = await Breads.findAll({
       order: [['bread_id']],
     });
-    res.json(breads);
+    if (breads.length === 0) {
+      errMessage(req, res);
+    } else {
+      res.json(breads);
+    }
   } catch (error) {
     console.error(`${req.method} ${req.originalUrl} : ${error.message}`);
     errMessage(req, res);
@@ -59,7 +72,11 @@ menuRouter.get('/step/cheese', async (req, res) => {
     const cheeses = await Cheeses.findAll({
       order: [['cheese_id']],
     });
-    res.json(cheeses);
+    if (cheeses.length === 0) {
+      errMessage(req, res);
+    } else {
+      res.json(cheeses);
+    }
   } catch (error) {
     console.error(`${req.method} ${req.originalUrl} : ${error.message}`);
     errMessage(req, res);
@@ -70,7 +87,11 @@ menuRouter.get('/step/extras', async (req, res) => {
     const extras = await Extras.findAll({
       order: [['extras_id']],
     });
-    res.json(extras);
+    if (extras.length === 0) {
+      errMessage(req, res);
+    } else {
+      res.json(extras);
+    }
   } catch (error) {
     console.error(`${req.method} ${req.originalUrl} : ${error.message}`);
     errMessage(req, res);
@@ -81,7 +102,11 @@ menuRouter.get('/step/vegetable', async (req, res) => {
     const vegetables = await Vegetables.findAll({
       order: [['vegetable_id']],
     });
-    res.json(vegetables);
+    if (vegetables.length === 0) {
+      errMessage(req, res);
+    } else {
+      res.json(vegetables);
+    }
   } catch (error) {
     console.error(`${req.method} ${req.originalUrl} : ${error.message}`);
     errMessage(req, res);
@@ -92,7 +117,11 @@ menuRouter.get('/step/sauce', async (req, res) => {
     const sauces = await Sauces.findAll({
       order: [['sauce_id']],
     });
-    res.json(sauces);
+    if (sauces.length === 0) {
+      errMessage(req, res);
+    } else {
+      res.json(sauces);
+    }
   } catch (error) {
     console.error(`${req.method} ${req.originalUrl} : ${error.message}`);
     errMessage(req, res);
@@ -102,7 +131,11 @@ menuRouter.get('/step/sauce', async (req, res) => {
 menuRouter.get('/step/combo', async (req, res) => {
   try {
     const combos = await Combos.findAll();
-    res.json(combos);
+    if (combos.length === 0) {
+      errMessage(req, res);
+    } else {
+      res.json(combos);
+    }
   } catch (error) {
     console.error(`${req.method} ${req.originalUrl} : ${error.message}`);
     errMessage(req, res);

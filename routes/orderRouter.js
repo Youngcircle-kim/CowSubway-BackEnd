@@ -1,5 +1,4 @@
 const express = require('express');
-
 const orderRouter = express.Router();
 
 let orderItems = [];
@@ -11,11 +10,11 @@ orderRouter.post('/order', (req, res, error) => {
     const { totalPrice } = data;
     orderItems = data.orderItems;
     if (
-      orderItems.length === 0 ||
+      orderItems.length < 1 ||
       typeof payType === 'undefined' ||
       typeof totalPrice === 'undefined'
     ) {
-      res.status(400).send({ success: false, message: '주문실패' });
+      throw err;
     } else if (
       // eslint-disable-next-line no-dupe-else-if
       typeof payType !== 'undefined' &&
@@ -32,6 +31,7 @@ orderRouter.post('/order', (req, res, error) => {
     }
   } catch (err) {
     console.error(`${req.method} ${req.originalUrl} : ${error.message}`);
+    res.status(400).send({ success: false, message: '주문실패' });
   }
 });
 

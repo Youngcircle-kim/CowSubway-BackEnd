@@ -13,7 +13,7 @@ const db = mysql.createPool({
 
 // 장바구니 조회
 router.get('/', (req, res) => {
-  const sqlQuery = 'SELECT * FROM subway.vegetable;';
+  const sqlQuery = 'SELECT * FROM subway.items;';
   db.query(sqlQuery, (err, result) => {
     res.send(result);
   });

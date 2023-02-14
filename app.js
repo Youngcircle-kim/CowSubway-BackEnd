@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+
 const app = express();
 
 const corOptions = {
@@ -18,6 +19,6 @@ const menuRouter = require('./routes/menuRouter');
 const orderRouter = require('./routes/orderRouter');
 
 app.use('/', menuRouter);
-// app.use('/', orderRouter);
+app.use('/', orderRouter);
 
 app.listen(3000);

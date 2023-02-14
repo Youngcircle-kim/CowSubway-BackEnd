@@ -9,7 +9,7 @@
     "airbnb-base",
     "plugin:prettier/recommended"
   ],
-  "plugins": ["prettier", "sequelize"],
+  "plugins": ["prettier"],
   "overrides": [],
   "parserOptions": {
     "ecmaVersion": "latest",

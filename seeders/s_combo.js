@@ -16,14 +16,14 @@ module.exports = {
           combo_name: '쿠키 세트',
           combo_price: 1900,
           combo_img:
-            'https://o.remove.bg/downloads/43db10f6-dd11-4dbc-93f2-efe611df4c0d/B-removebg-preview.png',
+            'https://o.remove.bg/downloads/43db10f6-dd11-4dbc-93f2-efe611df4c0d/B-removebg-preview.pnghttps://www.subway.co.kr/upload/menu/chocolate_chip_20210315021446423.jpg',
         },
         {
           combo_id: 3, // 웨지 감자 세트
           combo_name: '웨지 감자 세트',
           combo_price: 3100,
           combo_img:
-            'https://o.remove.bg/downloads/f2190076-07e3-4791-892b-7a25357e8411/24ea088be6-removebg-preview.png',
+            'https://www.subway.co.kr/upload/menu/%EC%9B%A8%EC%A7%80%ED%8F%AC%ED%85%8C%EC%9D%B4%ED%86%A0_20220916104739353.jpg',
         },
       ],
       {}

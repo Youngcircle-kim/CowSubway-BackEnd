@@ -13,7 +13,7 @@ class Order extends Sequelize.Model {
         order_price: {
           // 주문 가격
           type: Sequelize.INTEGER,
-          allowNull: true,
+          allowNull: false,
         },
       },
       {

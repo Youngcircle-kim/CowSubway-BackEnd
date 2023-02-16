@@ -1,6 +1,6 @@
 const { Op } = require('sequelize');
 const Menus = require('../models/menu');
-const errMessage = require('../routes/menuRouter');
+const errMessage = require('../errMessage');
 
 const saladController = async (req, res) => {
   try {
@@ -15,7 +15,7 @@ const saladController = async (req, res) => {
     }
   } catch (error) {
     console.error(`${req.method} ${req.originalUrl} : ${error.message}`);
-    errMessage(req, res);
+    errMessage.resourceNotFoundException(req, res);
   }
 };
 

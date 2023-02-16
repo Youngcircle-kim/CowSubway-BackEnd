@@ -1,39 +1,57 @@
+const { body, validationResult } = require('express-validator/check');
 const express = require('express');
+const Payments = require('../models/payment');
+const OrderItems = require('../models/orderItems');
+const Order = require('../models/order');
+const Place = require('../models/place');
 
 const orderRouter = express.Router();
-
-let orderItems = [];
 let number = 0;
-orderRouter.post('/order', (req, res, error) => {
-  try {
-    const data = req.body;
-    const { payType } = data;
-    const { totalPrice } = data;
-    orderItems = data.orderItems;
-    if (
-      orderItems.length < 1 ||
-      typeof payType === 'undefined' ||
-      typeof totalPrice === 'undefined'
-    ) {
-      res.status(400).send({ success: false, message: '주문실패' });
-    } else if (
-      // eslint-disable-next-line no-dupe-else-if
-      typeof payType !== 'undefined' &&
-      typeof totalPrice !== 'undefined'
-    ) {
-      number += 1;
-      res.status(200).send({
-        success: true,
-        message: '주문성공',
-        data: {
-          waitingNumber: number,
-        },
-      });
+
+orderRouter.post(
+  '/order',
+  [body('payType').exists(), body('order_price').exists()],
+  (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
     }
-  } catch (err) {
-    console.error(`${req.method} ${req.originalUrl} : ${error.message}`);
-    res.status(400).send({ success: false, message: '주문실패' });
+
+    number += 1;
+    const data = req.body;
+
+    Order.create({
+      order_number: number, // 주문 번호
+      order_price: data.order_price, // 총 주문 가격
+    }).then((_) => {
+      console.log('Order');
+    });
+    Payments.create({
+      payType: data.payType, // 결제 식별자
+      method_id: data.method_id, // 결제 방식
+      payment_price: data.order_price,
+    }).then((_) => {
+      console.log('payType');
+    });
+    OrderItems.create({
+      orders_id: data.orders_id, // 주문 상품들의 식별자(고객별로 구분)
+    }).then((_) => {
+      console.log('order_id');
+    });
+    Place.create({
+      place_id: data.place_id, // 식사 장소
+    }).then((_) => {
+      console.log('Place_id');
+    });
+
+    res.status(200).send({
+      success: true,
+      message: '주문성공',
+      data: {
+        waitingNumber: number,
+      },
+    });
   }
-});
+);
 
 module.exports = orderRouter;

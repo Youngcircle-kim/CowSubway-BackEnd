@@ -10,7 +10,13 @@ let number = 0;
 
 orderRouter.post(
   '/order',
-  [body('payType').exists(), body('order_price').exists()],
+  [
+    body('place_id').exists(),
+    body('payType').exists(),
+    body('orders_id').exists(),
+    body('order_price').exists(),
+    body('orderItems').exists(),
+  ],
   (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -19,11 +25,13 @@ orderRouter.post(
 
     number += 1;
     const data = req.body;
+    console.log(data);
 
     Order.create({
       order_number: number, // 주문 번호
       order_price: data.order_price, // 총 주문 가격
-    }).then((_) => {
+      place_id: data.place_id, // 식사 장소
+    }).then(() => {
       console.log('Order');
     });
     Payments.create({
@@ -35,13 +43,9 @@ orderRouter.post(
     });
     OrderItems.create({
       orders_id: data.orders_id, // 주문 상품들의 식별자(고객별로 구분)
+      order_number: number,
     }).then((_) => {
       console.log('order_id');
-    });
-    Place.create({
-      place_id: data.place_id, // 식사 장소
-    }).then((_) => {
-      console.log('Place_id');
     });
 
     res.status(200).send({

@@ -7,7 +7,7 @@ module.exports = class Method extends Sequelize.Model {
         method_id: {
           //결제수단식별자(PK)
           type: Sequelize.INTEGER,
-          autoIncrement: true,
+
           primaryKey: true,
         },
         method_name: {

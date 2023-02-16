@@ -7,7 +7,7 @@ module.exports = class Place extends Sequelize.Model {
         place_id: {
           //식사장소식별자(PK)
           type: Sequelize.INTEGER,
-          autoIncrement: true,
+
           primaryKey: true,
         },
       },

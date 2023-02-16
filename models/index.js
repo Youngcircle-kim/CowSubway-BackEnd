@@ -35,7 +35,7 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 db.OrderItems = OrderItems;
-db.Recommend = Recommend;
+// db.Recommend = Recommend;
 db.OrderSauce = OrderSauce;
 db.OrderTopping = OrderTopping;
 db.OrderVegetable = OrderVegetable;
@@ -54,7 +54,7 @@ db.PayOrder = PayOrder;
 db.Order = Order;
 
 OrderItems.init(sequelize);
-Recommend.init(sequelize);
+// Recommend.init(sequelize);
 OrderSauce.init(sequelize);
 OrderTopping.init(sequelize);
 OrderVegetable.init(sequelize);
@@ -112,21 +112,21 @@ Items.belongsTo(OrderItems, {
   foreignKey: 'orders_id',
 });
 
-// 추천 소스 : 메뉴 = 1 : N
-Recommend.hasMany(Menu, {
-  foreignKey: 'recommend_id',
-});
-Menu.belongsTo(Recommend, {
-  foreignKey: 'recommend_id',
-});
+// // 추천 소스 : 메뉴 = 1 : N
+// Recommend.hasMany(Menu, {
+//   foreignKey: 'recommend_id',
+// });
+// Menu.belongsTo(Recommend, {
+//   foreignKey: 'recommend_id',
+// });
 
 // 소스 : 추천 소스 = 1 : N
-Sauce.hasMany(Recommend, {
-  foreignKey: 'sauce_id',
-});
-Recommend.belongsTo(Sauce, {
-  foreignKey: 'sauce_id',
-});
+// Sauce.hasMany(Recommend, {
+//   foreignKey: 'sauce_id',
+// });
+// Recommend.belongsTo(Sauce, {
+//   foreignKey: 'sauce_id',
+// });
 
 // 세트 : 제작상품 = 1 : N
 Combo.hasMany(Items, {

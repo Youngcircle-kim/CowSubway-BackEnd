@@ -7,7 +7,7 @@ class Recommend extends Sequelize.Model {
         recommend_id: {
           // 추천 소스 식별자
           type: Sequelize.INTEGER,
-          autoIncrement: true,
+          
           primaryKey: true,
         },
       },

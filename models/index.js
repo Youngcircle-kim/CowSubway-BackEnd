@@ -7,7 +7,7 @@ const Menu = require('./menu');
 const Bread = require('./bread');
 const Cheese = require('./cheese');
 const Items = require('./items');
-const Method = require('./method');
+const PayType = require('./payType');
 const Place = require('./place');
 const Combo = require('./combo');
 const ItemsVegetable = require('./items_vegetable');
@@ -45,7 +45,7 @@ db.Menu = Menu;
 db.Bread = Bread;
 db.Cheese = Cheese;
 db.Items = Items;
-db.Method = Method;
+db.PayType = PayType;
 db.Place = Place;
 db.Combo = Combo;
 db.Sauce = Sauce;
@@ -63,7 +63,7 @@ Menu.init(sequelize);
 Bread.init(sequelize);
 Cheese.init(sequelize);
 Items.init(sequelize);
-Method.init(sequelize);
+PayType.init(sequelize);
 Place.init(sequelize);
 Combo.init(sequelize);
 Vegetable.init(sequelize);
@@ -73,11 +73,11 @@ PayOrder.init(sequelize);
 Order.init(sequelize);
 
 // 결제 : 결제 수단 = 1 : 1
-Method.hasOne(Payment, {
-  foreignKey: 'method_id',
+PayType.hasOne(Payment, {
+  foreignKey: 'payment_id',
 });
-Payment.belongsTo(Method, {
-  foreignKey: 'method_id',
+Payment.belongsTo(PayType, {
+  foreignKey: 'payment_id',
 });
 
 // 주문 : 식사 장소 = 1 : 1

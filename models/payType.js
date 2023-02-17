@@ -1,13 +1,12 @@
 const Sequelize = require('sequelize');
 
-module.exports = class Method extends Sequelize.Model {
+module.exports = class PayType extends Sequelize.Model {
   static init(sequelize) {
     return super.init(
       {
-        method_id: {
+        payType: {
           //결제수단식별자(PK)
           type: Sequelize.INTEGER,
-
           primaryKey: true,
         },
         method_name: {

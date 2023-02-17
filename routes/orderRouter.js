@@ -35,8 +35,8 @@ orderRouter.post(
       console.log('Order');
     });
     Payments.create({
-      payType: data.payType, // 결제 식별자
-      method_id: data.method_id, // 결제 방식
+      payment_id: number, // 결제 기록 식별자
+      payType: data.payType, // 결제 방식 식별자
       payment_price: data.order_price,
     }).then((_) => {
       console.log('payType');

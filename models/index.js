@@ -7,16 +7,16 @@ const Menu = require('./menu');
 const Bread = require('./bread');
 const Cheese = require('./cheese');
 const Items = require('./items');
-const Method = require('./method');
+const PayType = require('./payType');
 const Place = require('./place');
 const Combo = require('./combo');
-const OrderVegetable = require('./order_vegetable');
-const OrderTopping = require('./order_topping');
-const OrderSauce = require('./order_sauce');
+const ItemsVegetable = require('./items_vegetable');
+const ItemsTopping = require('./items_topping');
+const ItemsSauce = require('./items_sauce');
 const Topping = require('./topping');
 const Vegetable = require('./vegetable');
 const Sauce = require('./sauce');
-const Recommend = require('./recommend');
+// const Recommend = require('./recommend');
 const OrderItems = require('./orderItems');
 const Payment = require('./payment');
 const PayOrder = require('./pay_order');
@@ -36,16 +36,16 @@ db.sequelize = sequelize;
 
 db.OrderItems = OrderItems;
 // db.Recommend = Recommend;
-db.OrderSauce = OrderSauce;
-db.OrderTopping = OrderTopping;
-db.OrderVegetable = OrderVegetable;
+db.ItemsSauce = ItemsSauce;
+db.ItemsTopping = ItemsTopping;
+db.ItemsVegetable = ItemsVegetable;
 db.Vegetable = Vegetable;
 db.Topping = Topping;
 db.Menu = Menu;
 db.Bread = Bread;
 db.Cheese = Cheese;
 db.Items = Items;
-db.Method = Method;
+db.PayType = PayType;
 db.Place = Place;
 db.Combo = Combo;
 db.Sauce = Sauce;
@@ -55,15 +55,15 @@ db.Order = Order;
 
 OrderItems.init(sequelize);
 // Recommend.init(sequelize);
-OrderSauce.init(sequelize);
-OrderTopping.init(sequelize);
-OrderVegetable.init(sequelize);
+ItemsSauce.init(sequelize);
+ItemsTopping.init(sequelize);
+ItemsVegetable.init(sequelize);
 Topping.init(sequelize);
 Menu.init(sequelize);
 Bread.init(sequelize);
 Cheese.init(sequelize);
 Items.init(sequelize);
-Method.init(sequelize);
+PayType.init(sequelize);
 Place.init(sequelize);
 Combo.init(sequelize);
 Vegetable.init(sequelize);
@@ -73,11 +73,11 @@ PayOrder.init(sequelize);
 Order.init(sequelize);
 
 // 결제 : 결제 수단 = 1 : 1
-Method.hasOne(Payment, {
-  foreignKey: 'method_id',
+PayType.hasOne(Payment, {
+  foreignKey: 'payment_id',
 });
-Payment.belongsTo(Method, {
-  foreignKey: 'method_id',
+Payment.belongsTo(PayType, {
+  foreignKey: 'payment_id',
 });
 
 // 주문 : 식사 장소 = 1 : 1
@@ -162,26 +162,26 @@ Items.belongsTo(Menu, {
 
 // 제작상품 : 야채 = N : M
 Items.belongsToMany(Vegetable, {
-  through: OrderVegetable,
+  through: ItemsVegetable,
 });
 Vegetable.belongsToMany(Items, {
-  through: OrderVegetable,
+  through: ItemsVegetable,
 });
 
 // 제작상품 : 추가 = N : M
 Items.belongsToMany(Topping, {
-  through: OrderTopping,
+  through: ItemsTopping,
 });
 Topping.belongsToMany(Items, {
-  through: OrderTopping,
+  through: ItemsTopping,
 });
 
 // 제작상품 : 소스 = N : M
 Items.belongsToMany(Sauce, {
-  through: OrderSauce,
+  through: ItemsSauce,
 });
 Sauce.belongsToMany(Items, {
-  through: OrderSauce,
+  through: ItemsSauce,
 });
 sequelize
   .sync({ force: false })

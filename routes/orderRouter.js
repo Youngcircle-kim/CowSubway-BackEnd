@@ -25,7 +25,7 @@ orderRouter.post(
 
     number += 1;
     const data = req.body;
-    console.log(data);
+    console.log(number);
 
     Order.create({
       order_number: number, // 주문 번호
@@ -47,6 +47,7 @@ orderRouter.post(
     }).then((_) => {
       console.log('order_id');
     });
+    // Items.create();
 
     res.status(200).send({
       success: true,

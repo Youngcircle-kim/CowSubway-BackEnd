@@ -2,6 +2,13 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('vegetable', [
       {
+        vegetable_id: 0,
+        vegetable_name_kr: '선택 안함',
+        vegetable_name_en: 'Nothing',
+        vegetable_img:
+          'https://cdn-pro-web-247-254.cdn-nhncommerce.com/seoul3tr4692_godomall_com/data/add_goods/20/04/1000000743/1000000743_34.png',
+      },
+      {
         vegetable_id: 1,
         vegetable_name_kr: '양상추',
         vegetable_name_en: 'Lettuce',

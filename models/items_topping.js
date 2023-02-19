@@ -8,7 +8,7 @@ class ItemsTopping extends Sequelize.Model {
         sequelize,
         timestamps: false,
         underscore: false,
-        modelName: 'Items_Topping',
+        modelName: 'Items_topping',
         tableName: 'items_topping',
         paranoid: false,
         charset: 'utf8',

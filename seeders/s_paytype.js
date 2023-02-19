@@ -13,18 +13,18 @@ module.exports = {
      * }], {});
      */
     await queryInterface.bulkInsert(
-      'method',
+      'payType',
       [
         {
-          method_id: 1, // 카드 결제
+          payType: 1, // 카드 결제
           method_name: '카드 결제',
         },
         {
-          method_id: 2, // 간편 결제(모바일 페이, 앱결제 등)
+          payType: 2, // 간편 결제(모바일 페이, 앱결제 등)
           method_name: '간편 결제',
         },
         {
-          method_id: 3, // 기프티콘/쿠폰 결제
+          payType: 3, // 기프티콘/쿠폰 결제
           method_name: '기프티콘,쿠폰 결제',
         },
       ],

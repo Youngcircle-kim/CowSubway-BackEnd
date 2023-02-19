@@ -7,10 +7,14 @@ module.exports = class Combo extends Sequelize.Model {
         combo_id: {
           // 결제수단식별자(PK)
           type: Sequelize.INTEGER,
-          autoIncrement: true,
+
           primaryKey: true,
         },
-        combo_name: {
+        combo_name_kr: {
+          type: Sequelize.STRING(20),
+          allowNull: false,
+        },
+        combo_name_en: {
           type: Sequelize.STRING(20),
           allowNull: false,
         },

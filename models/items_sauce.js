@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-class OrderSauce extends Sequelize.Model {
+class ItemsSauce extends Sequelize.Model {
   static init(sequelize) {
     return super.init(
       {},
@@ -8,8 +8,8 @@ class OrderSauce extends Sequelize.Model {
         sequelize,
         timestamps: false,
         underscore: false,
-        modelName: 'Order_Sauce',
-        tableName: 'order_Sauce',
+        modelName: 'Items_Sauce',
+        tableName: 'items_Sauce',
         paranoid: false,
         charset: 'utf8',
         collate: 'utf8_general_ci',
@@ -17,4 +17,4 @@ class OrderSauce extends Sequelize.Model {
     );
   }
 }
-module.exports = OrderSauce;
+module.exports = ItemsSauce;

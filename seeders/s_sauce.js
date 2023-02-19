@@ -43,8 +43,8 @@ module.exports = {
         },
         {
           sauce_id: 7,
-          sauce_name_kr: 'NEW 사우스웨스트 치폴레',
-          sauce_name_en: 'NEW Southwest Chipotle',
+          sauce_name_kr: '사우스웨스트 치폴레',
+          sauce_name_en: 'Southwest Chipotle',
           sauce_img: 'https://www.subway.co.kr/images/menu/img_recipe_s09.jpg',
         },
         {

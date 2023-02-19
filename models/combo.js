@@ -10,7 +10,11 @@ module.exports = class Combo extends Sequelize.Model {
 
           primaryKey: true,
         },
-        combo_name: {
+        combo_name_kr: {
+          type: Sequelize.STRING(20),
+          allowNull: false,
+        },
+        combo_name_en: {
           type: Sequelize.STRING(20),
           allowNull: false,
         },

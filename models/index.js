@@ -74,10 +74,10 @@ Order.init(sequelize);
 
 // 결제 : 결제 수단 = 1 : 1
 PayType.hasOne(Payment, {
-  foreignKey: 'payment_id',
+  foreignKey: 'payType',
 });
 Payment.belongsTo(PayType, {
-  foreignKey: 'payment_id',
+  foreignKey: 'payType',
 });
 
 // 주문 : 식사 장소 = 1 : 1

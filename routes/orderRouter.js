@@ -1,6 +1,6 @@
 const { body, validationResult } = require('express-validator/check');
 const express = require('express');
-const Payments = require('../models/payment');
+const Payment = require('../models/payment');
 const OrderItems = require('../models/orderItems');
 const Order = require('../models/order');
 const Place = require('../models/place');
@@ -11,11 +11,9 @@ let number = 0;
 orderRouter.post(
   '/order',
   [
+    body('order_price').exists(),
     body('place_id').exists(),
     body('payType').exists(),
-    body('orders_id').exists(),
-    body('order_price').exists(),
-    body('orderItems').exists(),
   ],
   (req, res) => {
     const errors = validationResult(req);
@@ -34,7 +32,7 @@ orderRouter.post(
     }).then(() => {
       console.log('Order');
     });
-    Payments.create({
+    Payment.create({
       payment_id: number, // 결제 기록 식별자
       payType: data.payType, // 결제 방식 식별자
       payment_price: data.order_price,
@@ -42,8 +40,9 @@ orderRouter.post(
       console.log('payType');
     });
     OrderItems.create({
-      orders_id: data.orders_id, // 주문 상품들의 식별자(고객별로 구분)
-      order_number: number,
+      orders_id: number, // 주문 상품들의 식별자(고객별로 구분)
+      //위에거 수정해야댄
+      // order_number: number,
     }).then((_) => {
       console.log('order_id');
     });

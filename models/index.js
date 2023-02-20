@@ -96,20 +96,12 @@ PayOrder.belongsTo(Order);
 Payment.hasOne(PayOrder);
 PayOrder.belongsTo(Payment);
 
-// 주문 : 주문상품들 = 1 : N
-Order.hasMany(OrderItems, {
-  foreignKey: 'order_number',
+// 주문 : 주문상품들 = N :M
+Order.hasMany(Items, {
+  through: OrderItems,
 });
-OrderItems.belongsTo(Order, {
-  foreignKey: 'order_number',
-});
-
-// 주문상품들 : 제작상품 = 1 : N
-OrderItems.hasMany(Items, {
-  foreignKey: 'orders_id',
-});
-Items.belongsTo(OrderItems, {
-  foreignKey: 'orders_id',
+Items.belongsTo(Order, {
+  through: OrderItems,
 });
 
 // // 추천 소스 : 메뉴 = 1 : N

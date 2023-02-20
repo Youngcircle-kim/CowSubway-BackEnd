@@ -13,6 +13,15 @@ module.exports = {
             'https://cdn-pro-web-247-254.cdn-nhncommerce.com/seoul3tr4692_godomall_com/data/add_goods/20/04/1000000743/1000000743_34.png',
           topping_price: 0,
         },
+
+        {
+          topping_id: 0,
+          topping_name_kr: '선택 안함',
+          topping_name_en: 'Nothing',
+          topping_img:
+            'https://cdn-pro-web-247-254.cdn-nhncommerce.com/seoul3tr4692_godomall_com/data/add_goods/20/04/1000000743/1000000743_34.png',
+          topping_price: 0,
+        },
         {
           topping_id: 1,
           topping_name_kr: '미트 추가',

@@ -3,13 +3,7 @@ const Sequelize = require('sequelize');
 class OrderItems extends Sequelize.Model {
   static init(sequelize) {
     return super.init(
-      {
-        orders_id: {
-          type: Sequelize.INTEGER,
-          allowNull: false,
-          primaryKey: true,
-        },
-      },
+      {},
       {
         sequelize,
         timestamps: false,

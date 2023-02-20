@@ -7,6 +7,7 @@ class Items extends Sequelize.Model {
         item_id: {
           type: Sequelize.INTEGER,
           allowNull: false,
+          autoIncrement: true,
           primaryKey: true,
         },
         count: {

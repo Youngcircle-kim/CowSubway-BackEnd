@@ -1,7 +1,7 @@
 const { Sequelize, DataTypes } = require('sequelize');
 
 const env = process.env.NODE_ENV || 'development';
-const config = require('../config/config.js')[env];
+const config = require('../config/config.json')[env];
 
 const Menu = require('./menu');
 const Bread = require('./bread');
@@ -96,7 +96,7 @@ PayOrder.belongsTo(Order);
 Payment.hasOne(PayOrder);
 PayOrder.belongsTo(Payment);
 
-// 주문 : 주문상품들 = N :M
+// 주문 : 주문상품들 = 1 :N
 Order.belongsToMany(Items, {
   through: OrderItems,
 });

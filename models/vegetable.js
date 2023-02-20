@@ -6,7 +6,8 @@ class Vegetable extends Sequelize.Model {
       {
         vegetable_id: {
           type: Sequelize.INTEGER,
-          allowNull: false,
+          allowNull: true,
+          autoIncrement: true,
           primaryKey: true,
         },
         vegetable_name_kr: {

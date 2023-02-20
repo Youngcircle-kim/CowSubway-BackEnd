@@ -9,6 +9,7 @@ class Payment extends Sequelize.Model {
           // 결제식별자
           type: Sequelize.INTEGER,
           allowNull: false,
+          autoIncrement: true,
           primaryKey: true,
         },
         payment_price: {

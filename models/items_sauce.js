@@ -3,7 +3,12 @@ const Sequelize = require('sequelize');
 class ItemsSauce extends Sequelize.Model {
   static init(sequelize) {
     return super.init(
-      {},
+      {
+        SauceSauceId: {
+          type: Sequelize.INTEGER,
+          allowNull: true,
+        },
+      },
       {
         sequelize,
         timestamps: false,

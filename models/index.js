@@ -1,7 +1,7 @@
 const { Sequelize, DataTypes } = require('sequelize');
 
 const env = process.env.NODE_ENV || 'development';
-const config = require('../config/config.json')[env];
+const config = require('../config/config.js')[env];
 
 const Menu = require('./menu');
 const Bread = require('./bread');
@@ -17,9 +17,9 @@ const Topping = require('./topping');
 const Vegetable = require('./vegetable');
 const Sauce = require('./sauce');
 // const Recommend = require('./recommend');
-const OrderItems = require('./orderItems');
+// const OrderItems = require('./orderItems');
 const Payment = require('./payment');
-const PayOrder = require('./pay_order');
+// const PayOrder = require('./pay_order');
 const Order = require('./order');
 
 const db = {};
@@ -34,7 +34,7 @@ const sequelize = new Sequelize(
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.OrderItems = OrderItems;
+// db.OrderItems = OrderItems;
 // db.Recommend = Recommend;
 db.ItemsSauce = ItemsSauce;
 db.ItemsTopping = ItemsTopping;
@@ -50,10 +50,10 @@ db.Place = Place;
 db.Combo = Combo;
 db.Sauce = Sauce;
 db.Payment = Payment;
-db.PayOrder = PayOrder;
+// db.PayOrder = PayOrder;
 db.Order = Order;
 
-OrderItems.init(sequelize);
+// OrderItems.init(sequelize);
 // Recommend.init(sequelize);
 ItemsSauce.init(sequelize);
 ItemsTopping.init(sequelize);
@@ -69,7 +69,7 @@ Combo.init(sequelize);
 Vegetable.init(sequelize);
 Sauce.init(sequelize);
 Payment.init(sequelize);
-PayOrder.init(sequelize);
+// PayOrder.init(sequelize);
 Order.init(sequelize);
 
 // 결제 : 결제 수단 = 1 : 1
@@ -89,36 +89,20 @@ Order.belongsTo(Place, {
 });
 
 // 주문 : 결제_주문 = 1 : 1
-Order.hasOne(PayOrder);
-PayOrder.belongsTo(Order);
-
-// 결제 : 결제_주문 = 1 : 1
-Payment.hasOne(PayOrder);
-PayOrder.belongsTo(Payment);
-
-// 주문 : 주문상품들 = 1 :N
-Order.belongsToMany(Items, {
-  through: OrderItems,
+Order.hasOne(Payment, {
+  foreignKey: 'order_number',
 });
-Items.belongsToMany(Order, {
-  through: OrderItems,
+Payment.belongsTo(Order, {
+  foreignKey: 'order_number',
 });
 
-// // 추천 소스 : 메뉴 = 1 : N
-// Recommend.hasMany(Menu, {
-//   foreignKey: 'recommend_id',
-// });
-// Menu.belongsTo(Recommend, {
-//   foreignKey: 'recommend_id',
-// });
-
-// 소스 : 추천 소스 = 1 : N
-// Sauce.hasMany(Recommend, {
-//   foreignKey: 'sauce_id',
-// });
-// Recommend.belongsTo(Sauce, {
-//   foreignKey: 'sauce_id',
-// });
+// 주문 : 주문상품들 = N : M
+Order.hasMany(Items, {
+  foreignKey: 'order_number',
+});
+Items.belongsTo(Order, {
+  foreignKey: 'order_number',
+});
 
 // 세트 : 제작상품 = 1 : N
 Combo.hasMany(Items, {

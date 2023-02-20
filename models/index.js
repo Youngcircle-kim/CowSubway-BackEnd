@@ -97,10 +97,10 @@ Payment.hasOne(PayOrder);
 PayOrder.belongsTo(Payment);
 
 // 주문 : 주문상품들 = N :M
-Order.hasMany(Items, {
+Order.belongsToMany(Items, {
   through: OrderItems,
 });
-Items.belongsTo(Order, {
+Items.belongsToMany(Order, {
   through: OrderItems,
 });
 

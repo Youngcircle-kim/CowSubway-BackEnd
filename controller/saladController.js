@@ -6,7 +6,7 @@ const saladController = async (req, res) => {
   try {
     const menus = await Menus.findAll({
       where: { menu_category: { [Op.in]: ['샐러드'] } }, // 카테고리에 '샐러드'가 포함되어 있으면 샐러드이다.
-      order: [['menu_price', 'desc']],
+      order: [['menu_id']],
     });
     if (menus.length === 0) {
       throw Object.assign(new Error(), { code: 400 });

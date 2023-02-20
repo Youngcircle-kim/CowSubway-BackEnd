@@ -6,7 +6,8 @@ class Topping extends Sequelize.Model {
       {
         topping_id: {
           type: Sequelize.INTEGER,
-          allowNull: false,
+          allowNull: true,
+          autoIncrement: true,
           primaryKey: true,
         },
         topping_name_kr: {

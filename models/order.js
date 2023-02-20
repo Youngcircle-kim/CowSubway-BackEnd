@@ -8,6 +8,7 @@ class Order extends Sequelize.Model {
           // 주문번호
           type: Sequelize.INTEGER,
           allowNull: false,
+          autoIncrement: true,
           primaryKey: true,
         },
         order_price: {

@@ -5,7 +5,7 @@ dotenv.config();
 const app = express();
 
 const corOptions = {
-  origin: 'https://localhost:5173',
+  origin: 'http://localhost:5173',
 };
 
 app.set('port', process.env.PORT || 3000);

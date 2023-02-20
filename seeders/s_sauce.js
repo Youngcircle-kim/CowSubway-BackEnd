@@ -6,13 +6,6 @@ module.exports = {
       'sauce',
       [
         {
-          sauce_id: 0,
-          sauce_name_kr: '선택 안함',
-          sauce_name_en: 'Nothing',
-          sauce_img:
-            'https://cdn-pro-web-247-254.cdn-nhncommerce.com/seoul3tr4692_godomall_com/data/add_goods/20/04/1000000743/1000000743_34.png',
-        },
-        {
           sauce_id: 1,
           sauce_name_kr: '랜치',
           sauce_name_en: 'Ranch',

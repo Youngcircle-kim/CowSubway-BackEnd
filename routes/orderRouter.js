@@ -128,7 +128,7 @@ orderRouter.post(
       }
       itemNumber += 1;
     }
-    s;
+    // s;
     res.status(200).send({
       success: true,
       message: '주문성공',

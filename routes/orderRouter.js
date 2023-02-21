@@ -1,7 +1,6 @@
 const { body, validationResult } = require('express-validator');
 const express = require('express');
 const Payment = require('../models/payment');
-// const OrderItems = require('../models/orderItems');
 const Order = require('../models/order');
 const Items = require('../models/items');
 const Items_vegetable = require('../models/items_vegetable');
@@ -17,6 +16,7 @@ orderRouter.post(
     body('order_price').exists(),
     body('place_id').exists(),
     body('payType').exists(),
+    body('orderItems').exists(),
   ],
   async (req, res) => {
     const errors = validationResult(req);
@@ -25,8 +25,8 @@ orderRouter.post(
     }
 
     number += 1;
-    const data = req.body;
-    // console.log('number: ' + number);
+    const data = req.body; // post요청 데이터
+    const orderItem = data.orderItems; // post요청 데이터에서 상품들만 받아오기
 
     await Order.create({
       // 주문 번호 자동 증가
@@ -41,92 +41,82 @@ orderRouter.post(
         console.log('payType성공');
       });
       console.log('Order성공');
-    });
 
-    const orderItem = data.orderItems; // post요청 데이터에서 상품들만 받아오기
-
-    for (let i = 0; i < orderItem.length; i++) {
-      let table = data.orderItems[i];
-      await Items.create({
-        bread_id: table.bread_id,
-        menu_id: table.menu_id,
-        cheese_id: table.cheese_id,
-        combo_id: table.combo_id,
-        price: table.price,
-        count: table.count,
-      }).then((items) => {
-        // 채소, 토핑, 소스 id가 null인지 판별
-        if (table.vegetable_id !== null) {
-          // 배열일 경우
-          for (let j = 0; j < table.vegetable_id.length; j++) {
+      for (let i = 0; i < orderItem.length; i++) {
+        let table = data.orderItems[i];
+        Items.create({
+          order_number: order.order_number,
+          bread_id: table.bread_id,
+          menu_id: table.menu_id,
+          cheese_id: table.cheese_id,
+          combo_id: table.combo_id,
+          price: table.price,
+          count: table.count,
+        }).then((items) => {
+          // 채소, 토핑, 소스 id가 null인지 판별
+          if (table.vegetable_id !== null) {
+            // 배열일 경우
+            for (let j = 0; j < table.vegetable_id.length; j++) {
+              Items_vegetable.create({
+                ItemItemId: items.item_id,
+                VegetableVegetableId: table.vegetable_id[j],
+              }).then(() => {
+                console.log('채소 테이블 성공함 ㅇ');
+              });
+            }
+          } else {
+            // null값일 경우
             Items_vegetable.create({
               ItemItemId: items.item_id,
-              VegetableVegetableId: table.vegetable_id[j],
+              VegetableVegetableId: 0, // null 대신 0을 넣어줌(선택안함)
             }).then(() => {
-              console.log('채소 테이블 성공함 ㅇ');
+              console.log('채소 테이블 null 성공');
             });
           }
-        } else {
-          // null값일 경우
-          Items_vegetable.create({
-            ItemItemId: items.item_id,
-            VegetableVegetableId: null, // null 대신 0을 넣어줌(선택안함)
-          }).then(() => {
-            console.log('I_V테이블 성공함 ㅇ');
-          });
-        }
 
-        if (table.topping_id !== null) {
-          // 배열일 경우
-          for (let k = 0; k < table.topping_id.length; k++) {
+          if (table.topping_id !== null) {
+            // 배열일 경우
+            for (let k = 0; k < table.topping_id.length; k++) {
+              Items_topping.create({
+                ItemItemId: items.item_id,
+                ToppingToppingId: table.topping_id[k],
+              }).then(() => {
+                console.log('토핑 테이블 성공함 ㅇ');
+              });
+            }
+          } else {
+            // null값일 경우
             Items_topping.create({
               ItemItemId: items.item_id,
-              ToppingToppingId: table.topping_id[k],
+              ToppingToppingId: 0, // null 대신 0을 넣어줌(선택안함)
             }).then(() => {
-              console.log('I_V테이블 성공함 ㅇ');
+              console.log('토핑 테이블 null 성공함 ㅇ');
             });
           }
-        } else {
-          // null값일 경우
-          Items_topping.create({
-            ItemItemId: items.item_id,
-            ToppingToppingId: null, // null 대신 0을 넣어줌(선택안함)
-          }).then(() => {
-            console.log('토핑 테이블 성공함 ㅇ');
-          });
-        }
-        if (table.sauce_id !== null) {
-          for (let l = 0; l < table.sauce_id.length; l++) {
+          if (table.sauce_id !== null) {
+            for (let l = 0; l < table.sauce_id.length; l++) {
+              Items_sauce.create({
+                ItemItemId: items.item_id,
+                SauceSauceId: table.sauce_id[l],
+              }).then(() => {
+                console.log('소스테이블 성공함 ㅇ');
+              });
+            }
+          } else {
+            // null값일 경우
             Items_sauce.create({
               ItemItemId: items.item_id,
-              SauceSauceId: table.sauce_id[l],
+              SauceSauceId: 0, // null 대신 0을 넣어줌(선택안함)
             }).then(() => {
-              console.log('소스테이블 성공함 ㅇ');
+              console.log('소스 테이블 성공함 ㅇ');
             });
           }
-        } else {
-          // null값일 경우
-          Items_sauce.create({
-            ItemItemId: items.item_id,
-            SauceSauceId: 1, // null 대신 0을 넣어줌(선택안함)
-          }).then(() => {
-            // Items_sauce.update(
-            //   {
-            //     SauceSauceId: null,
-            //   },
-            //   { where: {} }
-            // );
-            console.log('소스 테이블 성공함 ㅇ');
-          });
-        }
-      });
-
-      // itemNumber += 1;
-    }
-
+        });
+      }
+    });
     res.status(200).send({
       success: true,
-      message: '주문성공',
+      message: '주문 성공',
       data: {
         waitingNumber: number,
       },

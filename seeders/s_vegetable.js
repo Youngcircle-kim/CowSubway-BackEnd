@@ -2,6 +2,12 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('vegetable', [
       {
+        vegetable_id: 0,
+        vegetable_name_kr: '선택 안 함',
+        vegetable_name_en: 'Not selected',
+        vegetable_img: 'https://pic.onlinewebfonts.com/svg/img_165253.png',
+      },
+      {
         vegetable_id: 1,
         vegetable_name_kr: '양상추',
         vegetable_name_en: 'Lettuce',

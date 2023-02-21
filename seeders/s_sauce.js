@@ -6,6 +6,12 @@ module.exports = {
       'sauce',
       [
         {
+          sauce_id: 0,
+          sauce_name_kr: '선택 안 함',
+          sauce_name_en: 'Not selected',
+          sauce_img: 'https://pic.onlinewebfonts.com/svg/img_165253.png',
+        },
+        {
           sauce_id: 1,
           sauce_name_kr: '랜치',
           sauce_name_en: 'Ranch',

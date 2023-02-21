@@ -7,8 +7,7 @@ module.exports = class Sauce extends Sequelize.Model {
         sauce_id: {
           // 소스식별자(PK)
           type: Sequelize.INTEGER,
-          autoIncrement: true,
-          allowNull: true,
+          allowNull: false,
           primaryKey: true,
         },
         sauce_name_kr: {

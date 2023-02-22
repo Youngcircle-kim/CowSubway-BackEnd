@@ -4,8 +4,8 @@ module.exports = {
       {
         vegetable_id: 0,
         vegetable_name_kr: '선택 안 함',
-        vegetable_name_en: 'Not selected',
-        vegetable_img: 'https://pic.onlinewebfonts.com/svg/img_165253.png',
+        vegetable_name_en: 'Not Selected',
+        vegetable_img: '',
       },
       {
         vegetable_id: 1,

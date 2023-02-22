@@ -46,20 +46,20 @@ orderRouter.post(
         let table = data.orderItems[i];
         Items.create({
           order_number: order.order_number,
-          bread_id: table.bread_id,
-          menu_id: table.menu_id,
-          cheese_id: table.cheese_id,
-          combo_id: table.combo_id,
+          bread_id: table.breadId,
+          menu_id: table.menuId,
+          cheese_id: table.cheeseId,
+          combo_id: table.comboId,
           price: table.price,
           count: table.count,
         }).then((items) => {
           // 채소, 토핑, 소스 id가 null인지 판별
-          if (table.vegetable_id !== null) {
+          if (table.vegetableId !== null) {
             // 배열일 경우
-            for (let j = 0; j < table.vegetable_id.length; j++) {
+            for (let j = 0; j < table.vegetableId.length; j++) {
               Items_vegetable.create({
                 ItemItemId: items.item_id,
-                VegetableVegetableId: table.vegetable_id[j],
+                VegetableVegetableId: table.vegetableId[j],
               }).then(() => {
                 console.log('채소 테이블 성공함 ㅇ');
               });
@@ -74,12 +74,12 @@ orderRouter.post(
             });
           }
 
-          if (table.topping_id !== null) {
+          if (table.toppingId !== null) {
             // 배열일 경우
-            for (let k = 0; k < table.topping_id.length; k++) {
+            for (let k = 0; k < table.toppingId.length; k++) {
               Items_topping.create({
                 ItemItemId: items.item_id,
-                ToppingToppingId: table.topping_id[k],
+                ToppingToppingId: table.toppingId[k],
               }).then(() => {
                 console.log('토핑 테이블 성공함 ㅇ');
               });
@@ -93,11 +93,11 @@ orderRouter.post(
               console.log('토핑 테이블 null 성공함 ㅇ');
             });
           }
-          if (table.sauce_id !== null) {
-            for (let l = 0; l < table.sauce_id.length; l++) {
+          if (table.sauceId !== null) {
+            for (let l = 0; l < table.sauceId.length; l++) {
               Items_sauce.create({
                 ItemItemId: items.item_id,
-                SauceSauceId: table.sauce_id[l],
+                SauceSauceId: table.sauceId[l],
               }).then(() => {
                 console.log('소스테이블 성공함 ㅇ');
               });

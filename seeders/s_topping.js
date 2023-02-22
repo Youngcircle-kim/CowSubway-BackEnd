@@ -8,8 +8,8 @@ module.exports = {
         {
           topping_id: 0,
           topping_name_kr: '선택 안 함',
-          topping_name_en: 'Not selected',
-          topping_img: 'https://pic.onlinewebfonts.com/svg/img_165253.png',
+          topping_name_en: 'Not Selected',
+          topping_img: '',
           topping_price: 0,
         },
         {

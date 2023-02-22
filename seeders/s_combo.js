@@ -15,7 +15,7 @@ module.exports = {
         {
           combo_id: 2, // 쿠키 세트
           combo_name_kr: '쿠키 세트',
-          combo_name_en: 'Cookie combo',
+          combo_name_en: 'Cookie Combo',
           combo_price: 1900,
           combo_img:
             'https://www.subway.co.kr/upload/menu/chocolate_chip_20210315021446423.jpg',
@@ -23,7 +23,7 @@ module.exports = {
         {
           combo_id: 3, // 웨지 감자 세트
           combo_name_kr: '웨지 감자 세트',
-          combo_name_en: 'Potato wedges combo',
+          combo_name_en: 'Wedge Potatoes Combo',
           combo_price: 3100,
           combo_img:
             'https://www.subway.co.kr/upload/menu/%EC%9B%A8%EC%A7%80%ED%8F%AC%ED%85%8C%EC%9D%B4%ED%86%A0_20220916104739353.jpg',
